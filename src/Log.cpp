@@ -4,10 +4,13 @@
 
 Log::Log() {
     logInfo("Dinner begins");
+    std::thread tmp([&](){processThread();});
+    print_thread = std::move(tmp);
 }
 
 Log::~Log() {
     logInfo("Dinner ends");
+    print_thread.join();
 }
 
 
@@ -31,7 +34,7 @@ void Log::addEvent(LogEvent rec) {
     nonEmpty_.notify_all();
 }
 
-void Log::processEvent() {
+bool Log::processEvent() {
     std::unique_lock<std::mutex> l(m_);
     auto hasData = [&]{ return not queue_.empty(); };
     nonEmpty_.wait(l, hasData);
@@ -44,6 +47,8 @@ void Log::processEvent() {
     output << record.data << "\n";
 
     std::cout << output.str();
+
+    return (record.data == "Dinner ends") ? false : true;
 }
 
 void Log::logInfo(std::string text) {
@@ -61,4 +66,8 @@ void Log::logDebug(std::string text) {
 void Log::logError(std::string text) {
     LogEvent evt{LogLevel::error, text};
     addEvent(evt);
+}
+
+void Log::processThread() {
+    while(processEvent());
 }

@@ -1,8 +1,9 @@
 #include <iostream>
 #include "Philosopher.hpp"
+#include "Log.hpp"
 
 int main() {
-    std::cout << "Hello Troubled One!\n";
+    Log log;
 
     return 0;
 }

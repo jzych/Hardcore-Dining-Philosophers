@@ -26,8 +26,11 @@ struct Log {
     std::condition_variable nonEmpty_;
     std::deque<LogEvent> queue_;
 
-    void processEvent();
-    std::string addLevelFlag(LogLevel lvl);
+    void processEvent();                    // Takes log messege from queue and prints it
+    std::string addLevelFlag(LogLevel lvl); // Returns prefix string for proper log level
+    void addEvent(LogEvent rec);            // Adds event to queue
 public:
-    void addEvent(LogEvent rec);
+    void logInfo(std::string text);         // Shows progress of execution
+    void logDebug(std::string text);        // Shows additional data for debugging
+    void logError(std::string text);        // Show errors messeges
 };

@@ -36,3 +36,20 @@ void Log::processEvent() {
 
     std::cout << output.str();
 }
+
+void Log::logInfo(std::string text) {
+    LogEvent evt{LogLevel::info, text};
+    addEvent(evt);
+}
+
+void Log::logDebug(std::string text) {
+    if(debug) {
+        LogEvent evt{LogLevel::debug, text};
+        addEvent(evt);
+    }
+}
+
+void Log::logError(std::string text) {
+    LogEvent evt{LogLevel::error, text};
+    addEvent(evt);
+}

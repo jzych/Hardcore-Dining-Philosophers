@@ -2,6 +2,15 @@
 #include <iostream>
 #include <sstream>
 
+Log::Log() {
+    logInfo("Dinner begins");
+}
+
+Log::~Log() {
+    logInfo("Dinner ends");
+}
+
+
 std::string Log::addLevelFlag(LogLevel lvl) {
     if(lvl == LogLevel::error)
         return "ERROR: ";

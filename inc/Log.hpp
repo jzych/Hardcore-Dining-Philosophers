@@ -1,5 +1,5 @@
 #pragma once
-#include <queue>
+#include <deque>
 #include <string>
 #include <mutex>
 #include <condition_variable>
@@ -24,7 +24,7 @@ struct LogEvent {
 struct Log {
     std::mutex m_;
     std::condition_variable nonEmpty_;
-    std::queue<LogEvent> queue_;
+    std::deque<LogEvent> queue_;
 
     void processEvent();
     std::string addLevelFlag(LogLevel lvl);

@@ -12,13 +12,13 @@ std::string Log::addLevelFlag(LogLevel lvl) {
         if(lvl == LogLevel::debug)
             return "DEBUG: ";
     }
-    
+
     return "";
 }
 
 void Log::addEvent(LogEvent rec) {
     std::unique_lock<std::mutex> l(m_);
-    queue_.push(rec);
+    queue_.push_front(rec);
     nonEmpty_.notify_all();
 }
 
@@ -29,7 +29,7 @@ void Log::processEvent() {
 
     std::stringstream output;
     auto record = queue_.back();
-    queue_.pop();
+    queue_.pop_back();
 
     output << addLevelFlag(record.lvl);
     output << record.data << "\n";

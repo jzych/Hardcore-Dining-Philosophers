@@ -4,6 +4,7 @@
 
 int main() {
     Log log;
+    Book book(log);
 
     return 0;
 }

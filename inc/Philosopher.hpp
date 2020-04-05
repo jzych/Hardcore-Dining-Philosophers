@@ -4,7 +4,7 @@
 #include <mutex>
 
 class Philosopher {
-    Book book_;
+    Book& book_;
     Waiter waiter_;
     std::mutex& leftFork_;
     std::mutex& rightFork_;

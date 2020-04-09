@@ -1,6 +1,6 @@
 #include "Philosopher.hpp"
 
-Philosopher::Philosopher(Book& book, Waiter& waiter, std::mutex& leftFork, std::mutex& rightFork_) :
-    book_(book), waiter_(waiter), leftFork_(leftFork), rightFork_(rightFork_)
-{
+Philosopher::Philosopher(Log& l, Book& b, Waiter& w) : log_(l),
+                                                       book_(b),
+                                                       waiter_(w) {
 }

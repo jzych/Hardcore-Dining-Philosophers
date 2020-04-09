@@ -22,7 +22,7 @@ class Book {
     std::mt19937 seed{ std::random_device{}() };
 
 public:
-    Book(Log& log);
+    explicit Book(Log& log);
     ~Book();
 
     void add_record(Thought t);     // Adds Thought to Book

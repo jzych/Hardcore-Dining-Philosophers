@@ -10,7 +10,7 @@ class Waiter
 
     bool check_neighbour_stavation(std::string name);
 public:
-    Waiter(Log& log);
+    explicit Waiter(Log& log);
     ~Waiter();
 
     void register_philosopher(Philosopher& p);

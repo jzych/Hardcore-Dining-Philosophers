@@ -1,6 +1,7 @@
 # Hardcore-Dining-Philosophers
 
 [![Build Status](https://travis-ci.org/jzych/Hardcore-Dining-Philosophers.svg?branch=master)](https://travis-ci.org/jzych/Hardcore-Dining-Philosophers)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4c22a002fc354098b0972e5a7297a608)](https://www.codacy.com/manual/jzych/Hardcore-Dining-Philosophers?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jzych/Hardcore-Dining-Philosophers&amp;utm_campaign=Badge_Grade)
 
 Extended version of Dining Philosopher problem
 
